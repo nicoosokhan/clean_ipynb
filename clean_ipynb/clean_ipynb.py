@@ -14,7 +14,7 @@ def clean_ipynb(ipynb_file_path, overwrite):
             ipynb_file_path, ipynb_file_path.replace(".ipynb", ".cleaned.ipynb")
         )
 
-    with open(ipynb_file_path) as io:
+    with open(ipynb_file_path, encoding="utf8") as io:
 
         ipynb_dict = load(io)
 
@@ -68,7 +68,7 @@ def clean_ipynb(ipynb_file_path, overwrite):
 
     ipynb_dict["cells"] = cells
 
-    with open(ipynb_file_path, mode="w") as io:
+    with open(ipynb_file_path, mode="w", encoding="utf8") as io:
 
         dump(ipynb_dict, io, indent=1)
 
